@@ -14,6 +14,8 @@ export class QuestionComponent implements OnInit {
   public currentQuestion:number = 0;
   counter=60;
   selectedQuestion:any=null;
+  correctAnswer:number =0;
+  IncorrectAnswer:number =0;
   constructor(private questionservice: QuestionService ) { }
 
   ngOnInit(): void {
@@ -38,6 +40,25 @@ export class QuestionComponent implements OnInit {
 
     this.currentQuestion--;
     this.selectedQuestion=this.questionList[this.currentQuestion];
+  }
+
+  answer(currentQno:number,option:any){
+    if(option.correct){
+      debugger
+      this.points+=10;
+      this.correctAnswer++;
+      this.selectedQuestion=this.questionList[this.correctAnswer];
+      this.currentQuestion++;
+      this.selectedQuestion=this.questionList[this.currentQuestion];
+    }
+    else{
+      debugger
+      this.points-=10;
+      this.currentQuestion++;
+      this.selectedQuestion=this.questionList[this.correctAnswer];
+      this.IncorrectAnswer++;
+      this.selectedQuestion=this.questionList[this.IncorrectAnswer];
+    }
   }
 
 }
