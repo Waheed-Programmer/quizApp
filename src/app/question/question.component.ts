@@ -19,7 +19,7 @@ export class QuestionComponent implements OnInit {
   IncorrectAnswer:number =0;
   Interval$:any;
   progress:string="0";
-  IsquizCompleted:boolean=false;
+  isquizCompleted:boolean=false;
   constructor(private questionservice: QuestionService ) { }
 
   ngOnInit(): void {
@@ -49,7 +49,7 @@ export class QuestionComponent implements OnInit {
 
   answer(currentQno:number,option:any){
     if(currentQno===this.questionList.length){
-      this.IsquizCompleted = true;
+      this.isquizCompleted = true;
       this.stopCounter();
     }
     if(option.correct){

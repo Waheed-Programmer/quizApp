@@ -9,7 +9,7 @@
         <span style="font-style: italic;">Welcome {{name}}</span>
       </div>
     </div>
-   <ng-container *ngIf="!IsquizCompleted">
+   <ng-container *ngIf="!isquizCompleted">
     <div class="d-flex justify-content-around p-3">
       <div class="score">
         <h5>{{points}} Points</h5>
@@ -45,14 +45,16 @@
       <button class="btn" [disabled]="currentQuestion===questionList.length-1" (click)="nextQuestion()"><i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i></button>
     </div>
    </ng-container>
-   <ng-container *ngIf="IsquizCompleted">
-    <div class="result text-center xol-md-6 col-sm-12">
-      <h3>Congratulations!! <br>You have Completed the Quiz.<br>Below is your result: </h3>
-      <p>Total Questions Attempted : {{questionList.length}} </p>
-      <p>Total Correct Answered : {{correctAnswer}} </p>
-      <p>Total Wrong Answered : {{IncorrectAnswer}} </p>
-      <p>Your Score : {{points}} </p>
-    </div>
-   </ng-container>
+
+
   </div>
 </div>
+<ng-container *ngIf="isquizCompleted">
+  <div class="result text-center xol-md-6 col-sm-12">
+    <h3>Congratulations!! <br>You have Completed the Quiz.<br>Below is your result: </h3>
+    <p>Total Questions Attempted : {{questionList.length}} </p>
+    <p>Total Correct Answered : {{correctAnswer}} </p>
+    <p>Total Wrong Answered : {{IncorrectAnswer}} </p>
+    <p>Your Score : {{points}} </p>
+  </div>
+</ng-container>
